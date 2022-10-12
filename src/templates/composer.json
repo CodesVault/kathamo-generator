@@ -1,0 +1,25 @@
+{
+    "name": "codesvalut/howdy",
+    "description": "WordPress plugin starter",
+    "type": "project",
+    "authors": [
+        {
+            "name": "CodesVault",
+            "email": "codesvault@gmail.com"
+        },
+        {
+            "name": "AbmSourav",
+            "email": "keramotul.islam@gmail.com"
+        }
+    ],
+    "scripts": {
+        "phpcs": "phpcs ",
+        "phpcbf": "phpcbf ",
+		"post-package-install": "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.4",
+        "squizlabs/php_codesniffer": "^3.7",
+        "wp-coding-standards/wpcs": "^2.3"
+    }
+}

@@ -1,0 +1,31 @@
+<?php
+/**
+ * @package {{text_domain}}
+ *
+ * Plugin Name: {{plugin_name}}
+ * Plugin URI:
+ * Description: A WordPress starter plugin.
+ * Version: 0.0.1
+ * Author:
+ * Author URI:
+ * License: GPLv2 or later
+ * Text Domain: {{text_domain}}
+ */
+
+use {{namespace_prefix}}\Core\{{namespace_prefix}}Core;
+
+if ( ! defined( 'ABSPATH' ) ) die();
+
+define( '{{plugin_name}}', '{{text_domain}}' );
+define( '{{plugin_name}}_VERSION', '0.0.1' );
+define( '{{plugin_name}}_FILE', __FILE__ );
+define( '{{plugin_name}}_DIR_PATH', plugin_dir_path( {{plugin_name}}_FILE ) );
+define( '{{plugin_name}}_PLUGIN_URL', plugins_url( '/', {{plugin_name}}_FILE ) );
+define( '{{plugin_name}}_DEV_MODE', false );
+
+if ( file_exists( {{plugin_name}}_DIR_PATH . '/vendor/autoload.php' ) ) {
+	require_once {{plugin_name}}_DIR_PATH . '/vendor/autoload.php';
+}
+require_once {{plugin_name}}_DIR_PATH . '/src/Core/bootstrap.php';
+
+{{namespace_prefix}}Core::getInstance();

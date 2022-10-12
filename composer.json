@@ -1,0 +1,20 @@
+{
+    "name": "howdy/scaffold",
+    "autoload": {
+        "psr-4": {
+            "Howdy\\Scaffold\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AbmSourav",
+            "email": "keramotul.islam@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "mustache/mustache": "^2.14",
+        "symfony/console": "5.4.13",
+        "symfony/filesystem": "5.4.13",
+        "symfony/finder": "5.4.11"
+    }
+}
