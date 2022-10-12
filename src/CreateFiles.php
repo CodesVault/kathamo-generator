@@ -30,7 +30,7 @@ class CreateFiles
 		$dir_list = explode('/', $dir_path);
 		if (count($dir_list) == 1) {
 			// create root directory files
-			static::createFile($dir_path);
+			static::createFile($dir_path, $dir_path);
 			return;
 		}
 
@@ -38,7 +38,7 @@ class CreateFiles
 		foreach ($dir_list as $dir_name) {
 			$is_file = explode('.', $dir_name);
 			if (count($is_file) > 1) {
-				static::createFile($file_relative_path . '/' . $dir_name);
+				static::createFile($file_relative_path . '/' . $dir_name, $dir_path);
 				continue;
 			}
 
@@ -57,14 +57,17 @@ class CreateFiles
 		}
 	}
 
-	private static function createFile($path)
+	private static function createFile($path, $template_path)
 	{
+		$origin_path =  dirname(__FILE__) . "/templates/" . $template_path;
 		$file_path = getcwd() . '/' . $path;
 		$filesystem = new Filesystem();
 
 		try {
-			$filesystem->touch(
-				Path::normalize($file_path)
+			$filesystem->copy(
+				Path::normalize($origin_path),
+				Path::normalize($file_path),
+				true
 			);
 			$filesystem->chmod($file_path, 0777);
 		} catch (IOExceptionInterface $exception) {
@@ -85,6 +88,8 @@ class CreateFiles
 
 			if ($file_suffix === 'json.mustache') {
 				$file_extension = '.json';
+			} elseif ($file_suffix === 'txt.mustache') {
+				$file_extension = '.txt';
 			}
 			$file = explode('_', $path)[0];
 			$filesystem->rename($file_path, $file . $file_extension);
