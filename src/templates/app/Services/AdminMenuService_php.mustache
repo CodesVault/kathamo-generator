@@ -4,10 +4,6 @@ namespace {{namespace_prefix}}\App\Services;
 
 use {{namespace_prefix}}\App\Core\Lib\SingleTon;
 
-/**
- * Service class for admin menu.
- * Reuseble functionality & business logics provider.
- */
 class AdminMenuService
 {
 	use SingleTon;
@@ -15,7 +11,7 @@ class AdminMenuService
 	public function getData()
 	{
 		$data = [
-			'plugin_name' => '{{Howdy}}',
+			'plugin_name' => '{{plugin_name}}',
 			'developed'   => 'Developed by',
 			'author_name' => 'CodesVault',
 			'author_link' => 'https://github.com/CodesVault',

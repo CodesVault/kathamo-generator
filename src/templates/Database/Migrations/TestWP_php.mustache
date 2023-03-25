@@ -3,29 +3,20 @@
 namespace {{namespace_prefix}}\Database\Migrations;
 
 use {{namespace_prefix}}\App\Core\Lib\SingleTon;
+use CodesVault\Howdyqb\DB;
 
-/**
- * Main Class for DB migrations
- * Extend this class to create your own migrations.
- */
-class TestWP extends MigrateCore
+class TestWP
 {
 	use SingleTon;
 
 	public function __construct()
 	{
-		// @phpcs:ignore
-		// $this->migrate(
-		// 	'test_wp',
-		// 	'CREATE TABLE `test_wp` (
-		//         `id` int(11) NOT NULL AUTO_INCREMENT,
-		//         `name` varchar(255) NOT NULL,
-		//         `email` varchar(255) NOT NULL,
-		//         `created_at` datetime NOT NULL,
-		//         `updated_at` datetime NOT NULL,
-		//         PRIMARY KEY (`id`)
-		//     )'
-		// );
+		// DB::create('howdy')
+		// 	->column('ID')->bigInt()->unsigned()->autoIncrement()->primary()->required()
+		// 	->column('name')->string(255)->required()
+		// 	->column('email')->string(255)->default('NULL')
+		// 	->index(['ID'])
+		// 	->execute();
 	}
 
 }
