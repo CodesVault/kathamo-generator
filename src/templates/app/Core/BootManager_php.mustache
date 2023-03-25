@@ -1,0 +1,64 @@
+<?php
+
+namespace {{namespace_prefix}}\App\Core;
+
+use {{namespace_prefix}}\App\Controllers\AdminMenuController;
+use {{namespace_prefix}}\App\Core\Lib\SingleTon;
+use {{namespace_prefix}}\App\Services\ActivationService;
+use {{namespace_prefix}}\App\Services\DeactivationService;
+
+/**
+ * WP action/filter hooks publisher.
+ */
+class BootManager
+{
+	use SingleTon;
+
+	protected $registerList = [];
+
+	public function __construct()
+	{
+		$this->setRegisterList();
+	}
+
+	/**
+	 * Load controller or service which need to register hooks initially when the plugin is loaded.
+	 *
+	 * @return false|void
+	 */
+	public function run()
+	{
+		if ( empty( $this->registerList ) ) {
+			return false;
+		}
+
+		foreach ( $this->registerList as $class ) {
+			$class::getInstance()->register();
+		}
+	}
+
+	/**
+	 * List of all those classes which need to register hooks.
+	 *
+	 * @return array
+	 */
+	protected function registerList()
+	{
+		return array(
+			ActivationService::class,
+			DeactivationService::class,
+			AssetsManager::class,
+			AdminMenuController::class,
+		);
+	}
+
+	/**
+	 * Set the array list of controllers & servicess which will be loaded initially.
+	 *
+	 * @return void
+	 */
+	protected function setRegisterList()
+	{
+		$this->registerList = $this->registerList();
+	}
+}

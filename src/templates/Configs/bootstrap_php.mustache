@@ -1,0 +1,122 @@
+<?php
+
+define( '{{constent_prefix}}_DIR_PATH', plugin_dir_path( {{constent_prefix}}_FILE ) );
+define( '{{constent_prefix}}_PLUGIN_URL', plugins_url( '/', {{constent_prefix}}_FILE ) );
+
+
+if ( ! function_exists( '{{function_prefix}}_get_config' ) ) {
+	/**
+	 * get configs.
+	 *
+	 * @param string $name - plugin name.
+	 *
+	 * @return mixed
+	 */
+	function {{function_prefix}}_get_config($name = '')
+	{
+		$configs = require_once {{constent_prefix}}_DIR_PATH . '/Configs/config.php';
+		if ( $name ) {
+			return isset($configs[$name]) ? $configs[$name] : false;
+		}
+		return $configs;
+	}
+}
+
+if ( ! function_exists( '{{function_prefix}}_prefix' ) ) {
+	/**
+	 * Add prefix for the given string.
+	 *
+	 * @param string $name - plugin name.
+	 *
+	 * @return mixed
+	 */
+	function {{function_prefix}}_prefix($name)
+	{
+		return {{function_prefix}}_get_config('plugin_slug') . "-" . $name;
+	}
+}
+
+if ( ! function_exists( '{{function_prefix}}_url' ) ) {
+	/**
+	 * Add prefix for the given string.
+	 *
+	 * @param  string $path
+	 *
+	 * @return mixed
+	 */
+	function {{function_prefix}}_url($path)
+	{
+		return {{constent_prefix}}_PLUGIN_URL . $path;
+	}
+}
+
+if ( ! function_exists( '{{function_prefix}}_asset_url' ) ) {
+	/**
+	 * Add prefix for the given string.
+	 *
+	 * @param  string $path
+	 *
+	 * @return string
+	 */
+	function {{function_prefix}}_asset_url($path)
+	{
+		return {{function_prefix}}_url( "assets" . $path );
+	}
+}
+
+if ( ! function_exists( '{{function_prefix}}_wp_ajax' ) ) {
+	/**
+	 * Wrapper function for wp_ajax_* and wp_ajax_nopriv_*
+	 *
+	 * @param  string $action - action name
+	 * @param string $callback - callback method name
+	 * @param bool   $public - is this a public ajax action
+	 *
+	 * @return void
+	 */
+	function {{function_prefix}}_wp_ajax($action, $callback, $public = false)
+	{
+		add_action( 'wp_ajax_' . $action, $callback );
+		if ( $public ) {
+			add_action( 'wp_ajax_nopriv_' . $action, $callback );
+		}
+	}
+}
+
+if ( ! function_exists( '{{function_prefix}}_render_template' ) ) {
+	/**
+	 * Require a Template file.
+	 *
+	 * @param  string $file_path
+	 * @param array  $data
+	 *
+	 * @throws \Exception - if file not found throw exception
+	 * @throws \Exception - if data is not array throw exception
+	 */
+	function {{function_prefix}}_render_template($file_path, $data = array())
+	{
+		$file = {{constent_prefix}}_DIR_PATH . "app" . $file_path;
+		if ( ! file_exists( $file ) ) {
+			throw new \Exception( "File not found" );
+		}
+		if ( ! is_array( $data ) ) {
+			throw new \Exception( "Expected array as data" );
+		}
+		extract( $data, EXTR_PREFIX_SAME, {{function_prefix}}_get_config('plugin_prefix') );	// @phpcs:ignore
+
+		return require_once $file;
+	}
+}
+
+if ( ! function_exists( '{{function_prefix}}_render_view_template' ) ) {
+	/**
+	 * Require a View template file.
+	 *
+	 * @param  string $file_path
+	 * @param array  $data
+	 */
+	function {{function_prefix}}_render_view_template($file_path, $data = array())
+	{
+		return {{function_prefix}}_render_template( "/Views" . $file_path, $data );
+	}
+}

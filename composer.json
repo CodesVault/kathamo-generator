@@ -1,8 +1,8 @@
 {
-    "name": "howdy/scaffold",
+    "name": "codesvault/kathamo",
     "autoload": {
         "psr-4": {
-            "Howdy\\Scaffold\\": "src/"
+            "Kathamo\\App\\": "src/"
         }
     },
     "authors": [
@@ -16,5 +16,8 @@
         "symfony/console": "5.4.13",
         "symfony/filesystem": "5.4.13",
         "symfony/finder": "5.4.11"
-    }
+    },
+    "bin": [
+        "bin/console"
+    ]
 }

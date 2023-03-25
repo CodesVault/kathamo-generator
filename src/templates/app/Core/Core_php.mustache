@@ -1,0 +1,26 @@
+<?php
+
+namespace {{namespace_prefix}}\App\Core;
+
+use {{namespace_prefix}}\App\Core\Lib\SingleTon;
+
+/**
+ * Main Class for plugin
+ */
+final class Core
+{
+	use SingleTon;
+
+	public function __construct()
+	{
+		$this->load();
+	}
+
+	private function load()
+	{
+		// if (class_exists('ProBootManager')) {
+		// 	return ProBootManager::getInstance()->run();
+		// }
+		BootManager::getInstance()->run();
+	}
+}

@@ -1,5 +1,5 @@
 <?php
-namespace Howdy\Scaffold;
+namespace Kathamo\App;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -10,32 +10,28 @@ class ScaffoldCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('howdy')
-            ->setDescription('Scaffolding plugin.')
+        $this->setName('kathamo')
+            ->setDescription('Scaffolding plugin framework.')
             // ->setHelp('Demonstration of custom commands created by Symfony Console component.')
-            ->addArgument('type', InputArgument::REQUIRED);
-			// ->addOption('plugin_name');
+            ->addOption('scaffold', InputArgument::REQUIRED);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-		if ($input->getArgument('type') !== 'scaffold') {
-			$output->writeln('Invalid type, try scaffold');
-			return Command::INVALID;
-		}
-
 		$plugin_name = readline("Plugin Name: ");
+		$plugin_prefix = readline("Plugin Prefix: ");
+		$function_prefix = readline("Global Function Prefix: ");
 		$text_domain = readline("Text Domain: ");
 		$namespace_prefix = readline("Namespace Prefix: ");
 
 		$input = [
-			'plugin_name' => $plugin_name,
-			'text_domain' => $text_domain,
-			'namespace_prefix' => $namespace_prefix,
+			'plugin_name'		=> $plugin_name,
+			'plugin_prefix'		=> $plugin_prefix,
+			'text_domain'		=> $text_domain,
+			'namespace_prefix'	=> $namespace_prefix,
+			'function_prefix'	=> $function_prefix,
+			'constent_prefix'	=> strtoupper($function_prefix),
 		];
-
-		// $scaffold = new HowdyScaffold;
-        // $output->writeln($scaffold->generate($input));
 
 		CreateFiles::create($input);
         return Command::SUCCESS;

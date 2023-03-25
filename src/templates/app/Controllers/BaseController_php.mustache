@@ -1,13 +1,11 @@
 <?php
 
-namespace Howdy\Controllers;
+namespace {{namespace_prefix}}\App\Controllers;
+
+use {{namespace_prefix}}\App\Controllers\Middleware\Middleware;
 
 /**
  * Base Controller.
- *
- * @package     howdy
- * @author      CodesVault, Keramot UL Islam <sourav926>
- * @since       0.0.1
  */
 class BaseController
 {
@@ -31,10 +29,15 @@ class BaseController
 	public function render( $file_path, $data = [], $buffer = false )
 	{
 		if ( ! $buffer ) {
-			return howdy_render_view_template( $file_path, $data );
+			return {{function_prefix}}_render_view_template( $file_path, $data );
 		}
 		ob_start();
-		howdy_render_view_template( $file_path, $data );
+		{{function_prefix}}_render_view_template( $file_path, $data );
 		return ob_get_clean();
+	}
+
+	public function middleware($key)
+	{
+		return Middleware::resolve($key);
 	}
 }
