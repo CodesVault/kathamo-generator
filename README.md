@@ -1,2 +1,2 @@
-# howdy-scaffold
-WordPress Plugin boilerplate scaffold CLI tool
+# Kathamo
+Generate Framework for WordPress plugin development.
