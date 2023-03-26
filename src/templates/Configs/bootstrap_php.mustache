@@ -10,7 +10,7 @@ if ( ! function_exists( '{{function_prefix}}_get_config' ) ) {
 	 *
 	 * @param string $name - plugin name.
 	 *
-	 * @return mixed
+	 * @return string
 	 */
 	function {{function_prefix}}_get_config($name = '')
 	{
@@ -28,7 +28,7 @@ if ( ! function_exists( '{{function_prefix}}_prefix' ) ) {
 	 *
 	 * @param string $name - plugin name.
 	 *
-	 * @return mixed
+	 * @return string
 	 */
 	function {{function_prefix}}_prefix($name)
 	{
@@ -42,7 +42,7 @@ if ( ! function_exists( '{{function_prefix}}_url' ) ) {
 	 *
 	 * @param  string $path
 	 *
-	 * @return mixed
+	 * @return string
 	 */
 	function {{function_prefix}}_url($path)
 	{
@@ -72,7 +72,7 @@ if ( ! function_exists( '{{function_prefix}}_wp_ajax' ) ) {
 	 * @param string $callback - callback method name
 	 * @param bool   $public - is this a public ajax action
 	 *
-	 * @return void
+	 * @return mixed
 	 */
 	function {{function_prefix}}_wp_ajax($action, $callback, $public = false)
 	{
@@ -89,6 +89,8 @@ if ( ! function_exists( '{{function_prefix}}_render_template' ) ) {
 	 *
 	 * @param  string $file_path
 	 * @param array  $data
+	 *
+	 * @return mixed
 	 *
 	 * @throws \Exception - if file not found throw exception
 	 * @throws \Exception - if data is not array throw exception
@@ -114,6 +116,8 @@ if ( ! function_exists( '{{function_prefix}}_render_view_template' ) ) {
 	 *
 	 * @param  string $file_path
 	 * @param array  $data
+	 *
+	 * @return mixed
 	 */
 	function {{function_prefix}}_render_view_template($file_path, $data = array())
 	{

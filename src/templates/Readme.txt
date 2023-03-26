@@ -1,5 +1,5 @@
-=== {{plugin_name}} ===
-Plugin Name: {{plugin_name}}
+=== Howdy ===
+Plugin Name: Howdy
 Version: 0.0.8
 Author: codesVault
 Author URI: https://github.com/CodesVault/

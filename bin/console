@@ -2,9 +2,12 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Kathamo\App\Commands\CreateTemplateCommand;
 use Symfony\Component\Console\Application;
-use Kathamo\App\ScaffoldCommand;
+use Kathamo\App\Commands\ScaffoldCommand;
 
 $app = new Application();
 $app->add(new ScaffoldCommand);
+$app->add(new CreateTemplateCommand());
+
 $app->run();

@@ -1,6 +1,7 @@
 <?php
-namespace Kathamo\App;
+namespace Kathamo\App\Commands;
 
+use Kathamo\App\CreateFiles;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,7 +13,6 @@ class ScaffoldCommand extends Command
     {
         $this->setName('kathamo')
             ->setDescription('Scaffolding plugin framework.')
-            // ->setHelp('Demonstration of custom commands created by Symfony Console component.')
             ->addOption('scaffold', InputArgument::REQUIRED);
     }
 
