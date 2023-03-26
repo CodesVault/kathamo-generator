@@ -2,9 +2,10 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Kathamo\App\Commands\KathamoCLI;
 use Symfony\Component\Console\Application;
-use Kathamo\App\ScaffoldCommand;
 
 $app = new Application();
-$app->add(new ScaffoldCommand);
+$app->add(new KathamoCLI);
+
 $app->run();

@@ -1,27 +1,27 @@
 <?php
 
-namespace Kathamo\App;
+namespace Kathamo\App\Services;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
-class CreateFiles
+class CreateSkeletonFiles
 {
-	private static $input_data = [];
+	private $input_data = [];
 
-	static function create($input)
+	public function __construct($input)
 	{
-		static::$input_data = $input;
+		$this->input_data = $input;
 
 		$finder = new Finder();
-		$finder->in(dirname(__FILE__) . '/templates');
+		$finder->in(dirname(__DIR__) . '/templates');
 		foreach ($finder as $file) {
-			static::createFileDir($file);
-			static::createFile($file);
+			$this->createFileDir($file);
+			$this->createFile($file);
 		}
 	}
 
-	private static function createFileDir($file)
+	private function createFileDir($file)
 	{
 		if (! is_dir($file->getRealPath())) {
 			return;
@@ -31,7 +31,7 @@ class CreateFiles
 		return;
 	}
 
-	private static function createFile($file)
+	private function createFile($file)
 	{
 		if (! is_file($file->getRealPath())) {
 			return;
@@ -50,9 +50,18 @@ class CreateFiles
 		if ('mustache' === $file_extension) {
 			$file_suffix = explode('_', $file_info[0]);
 			$new_file_dir_path = explode($file->getFileName(), $new_file_path);
-			$input_data = TemplateContent::generate(static::$input_data, $file->getRelativePathname());
+			$input_data = $this->generateFileData($this->input_data, $file->getRelativePathname());
 			$filesystem->dumpFile($new_file_path, $input_data);
 			$filesystem->rename($new_file_path, $new_file_dir_path[0] . "/" . $file_suffix[0] . "." . $file_suffix[1]);
 		}
+	}
+
+	private function generateFileData($file_input, $file_path = '')
+	{
+		$scaffold = new \Mustache_Engine(array(
+			'loader' => new \Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/templates'),
+		));
+		$plugin_template = $scaffold->loadTemplate($file_path);
+		return $plugin_template->render($file_input);
 	}
 }
