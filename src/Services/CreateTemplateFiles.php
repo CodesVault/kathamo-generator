@@ -1,20 +1,25 @@
 <?php
-
-namespace Kathamo\App;
+namespace Kathamo\App\Services;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
-class CreateTemplate
+class CreateTemplateFiles
 {
-    private $kathamo_path = '/var/www/html/wp-content/plugins/kathamo';
+    private $kathamo_path = null;
     private $terget_dir = null;
 
-    public function generate()
+    public function __construct($kathamo_path)
     {
-        mkdir(getcwd() . "/templates");
-        $this->terget_dir = getcwd() . "/templates/";
+        $this->kathamo_path = $kathamo_path;
 
+        mkdir(dirname(__DIR__) . "/templates");
+        $this->terget_dir = dirname(__DIR__) . "/templates/";
+        $this->generate();
+    }
+
+    private function generate()
+    {
         $finder = new Finder();
 		$finder->in($this->kathamo_path);
 		foreach ($finder as $file) {
@@ -75,7 +80,7 @@ class CreateTemplate
 
     private function generateMustacheVariables($file_data, $file_path)
     {
-        $content_schema = require __DIR__ . '/content-schema.php';
+        $content_schema = require dirname(__DIR__) . '/content-schema.php';
         print_r($content_schema);
         foreach ($content_schema as $old_data => $schema) {
             $file_data = str_replace($old_data, $schema, $file_data);
