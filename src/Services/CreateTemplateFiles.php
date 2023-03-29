@@ -21,7 +21,9 @@ class CreateTemplateFiles
     private function generate()
     {
         $finder = new Finder();
-		$finder->in($this->kathamo_path);
+		$finder->ignoreDotFiles(false)
+            ->in($this->kathamo_path);
+
 		foreach ($finder as $file) {
             if (
                 strpos($file->getRealPath(), 'vendor')
@@ -81,7 +83,6 @@ class CreateTemplateFiles
     private function generateMustacheVariables($file_data, $file_path)
     {
         $content_schema = require dirname(__DIR__) . '/content-schema.php';
-        print_r($content_schema);
         foreach ($content_schema as $old_data => $schema) {
             $file_data = str_replace($old_data, $schema, $file_data);
         }
