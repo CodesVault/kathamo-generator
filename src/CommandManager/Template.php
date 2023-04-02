@@ -3,7 +3,7 @@ namespace Kathamo\App\CommandManager;
 
 use Kathamo\App\Services\CreateTemplateFiles;
 
-class Template
+class Template extends Manager
 {
     private $kathamo_path = '/var/www/html/wp-content/plugins/kathamo';
 
