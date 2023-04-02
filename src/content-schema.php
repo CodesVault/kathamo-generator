@@ -6,6 +6,7 @@ return [
     'Text Domain: kathamo' => 'Text Domain: {{text_domain}}',
     'namespace Kathamo\App' => 'namespace {{namespace_prefix}}\App',
     'use Kathamo\App' => 'use {{namespace_prefix}}\App',
+    'Kathamo\Database'  => '{{namespace_prefix}}\Database',
     'KATHAMO_FILE' => '{{constent_prefix}}_FILE',
     'KATHAMO_DIR_PATH' => '{{constent_prefix}}_DIR_PATH',
     'KATHAMO_PLUGIN_URL' => '{{constent_prefix}}_PLUGIN_URL',
@@ -21,4 +22,5 @@ return [
     "'plugin_slug'		=> 'kathamo'"   => "'plugin_slug'		=> '{{plugin_prefix}}'",
     "'namaspace_root'	=> 'Kathamo',"  => "'namaspace_root'	=> '{{namespace_prefix}}',",
     "'plugin_name'		=> 'Kathamo',"  => "'plugin_name'		=> '{{plugin_name}}',",
+    '"\Kathamo\Database\Migrations\\"'    => '"\{{namespace_prefix}}\Database\Migrations\\"',
 ];

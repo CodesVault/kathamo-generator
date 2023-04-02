@@ -13,6 +13,11 @@ class CreateTemplateFiles
     {
         $this->kathamo_path = $kathamo_path;
 
+        if (is_dir(dirname(__DIR__) . "/templates")) {
+            $msg = "\n'" . dirname(__DIR__) . "/templates' directory exist, remove it to execute the command.\nExit\n";
+            echo Notifier::notify($msg, 'warning');
+            die();
+        }
         mkdir(dirname(__DIR__) . "/templates");
         $this->terget_dir = dirname(__DIR__) . "/templates/";
         $this->generate();
