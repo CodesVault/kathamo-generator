@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+
+require "./vendor/bin/kathamo";
