@@ -16,4 +16,9 @@ return [
     'kathamo_wp_ajax' => '{{function_prefix}}_wp_ajax',
     'kathamo_render_template' => '{{function_prefix}}_render_template',
     'kathamo_render_view_template' => '{{function_prefix}}_render_view_template',
+    '=> Kathamo\App'    => '=> {{namespace_prefix}}\App',
+    "'plugin_prefix'		=> 'kathamo'" => "'plugin_prefix'		=> '{{plugin_prefix}}'",
+    "'plugin_slug'		=> 'kathamo'"   => "'plugin_slug'		=> '{{plugin_prefix}}'",
+    "'namaspace_root'	=> 'Kathamo',"  => "'namaspace_root'	=> '{{namespace_prefix}}',",
+    "'plugin_name'		=> 'Kathamo',"  => "'plugin_name'		=> '{{plugin_name}}',",
 ];

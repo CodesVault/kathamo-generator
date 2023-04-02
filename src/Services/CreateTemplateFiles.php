@@ -28,6 +28,7 @@ class CreateTemplateFiles
             if (
                 strpos($file->getRealPath(), 'vendor')
                 || strpos($file->getRealPath(), 'composer.lock')
+                || strpos($file->getRealPath(), 'kathamo-framework')
             ) {
                 continue;
             }
