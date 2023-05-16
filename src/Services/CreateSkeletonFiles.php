@@ -14,7 +14,11 @@ class CreateSkeletonFiles
 		$this->input_data = $input;
 
 		$finder = new Finder();
-		$finder->in(dirname(__DIR__) . '/templates');
+		$finder
+			->ignoreDotFiles(false)
+			->in(dirname(__DIR__) . '/templates')
+			->notName(['.DS_Store']);
+
 		foreach ($finder as $file) {
 			$this->createFileDir($file);
 			$this->createFile($file);
