@@ -1,7 +1,7 @@
 <?php
 
 return [
-    '@package howdy' => '@package {{text_domain}}',
+    '@package kathamo' => '@package {{text_domain}}',
     'Plugin Name: Kathamo' => 'Plugin Name: {{plugin_name}}',
     'Text Domain: kathamo' => 'Text Domain: {{text_domain}}',
     'namespace Kathamo\App' => 'namespace {{namespace_prefix}}\App',
