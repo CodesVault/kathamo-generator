@@ -13,13 +13,13 @@ class KathamoCLI extends Command
     {
         $this->setName('kathamo')
             ->setDescription('Cli for Kathamo framework.')
-            ->addOption('scaffold', 'new')
-            ->addOption('template', 't');
+            ->addOption('new')
+            ->addOption('template');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if ($input->getOption('scaffold')) {
+        if ($input->getOption('new')) {
             new Scaffold();
         }
 
