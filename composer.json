@@ -19,12 +19,13 @@
             "homepage": "https://abmsourav.com"
         }
     ],
-    "require-dev": {
+    "require": {
         "mustache/mustache": "^2.14",
         "symfony/console": "5.4.13",
         "symfony/filesystem": "5.4.13",
         "symfony/finder": "5.4.11"
     },
+    "require-dev": {},
     "bin": [
         "bin/console"
     ],
