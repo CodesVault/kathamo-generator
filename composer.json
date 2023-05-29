@@ -28,7 +28,7 @@
     },
     "require-dev": {},
     "bin": [
-        "bin/create"
+        "bin/kathamo"
     ],
     "license": "MIT",
     "keywords": [
