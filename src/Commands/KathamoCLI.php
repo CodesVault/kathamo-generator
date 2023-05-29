@@ -11,7 +11,7 @@ class KathamoCLI extends Command
 {
     protected function configure()
     {
-        $this->setName('kathamo')
+        $this->setName('create')
             ->setDescription('Cli for Kathamo framework.')
             ->addOption('new')
             ->addOption('template');
