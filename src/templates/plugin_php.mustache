@@ -17,14 +17,11 @@ use {{namespace_prefix}}\App\Core\Core;
 if ( ! defined( 'ABSPATH' ) ) die();
 
 define( '{{constent_prefix}}_FILE', __FILE__ );
+
 require_once __DIR__ . '/Configs/bootstrap.php';
 
-// autoload thirdparty libraries.
 if ( file_exists( {{constent_prefix}}_DIR_PATH . '/vendor/autoload.php' ) ) {
 	require_once {{constent_prefix}}_DIR_PATH . '/vendor/autoload.php';
 }
-
-// autoload plugin's classes.
-require_once {{constent_prefix}}_DIR_PATH . '/Configs/autoloader.php';
 
 Core::getInstance();

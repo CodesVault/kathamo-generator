@@ -76,11 +76,14 @@ class CreateTemplateFiles
             return;
         }
 
-        if ('php' === $file_info[1]) {
+        if (
+            'php' === $file_info[1] ||
+            'composer.json' === $file->getFileName()
+        ) {
             $file_name = $file_info[0] . '_' . $file_info[1] . '.mustache';
             $new_file_path = $file_dir_path[0] . $file_name;
             $filesystem->rename($new_path, $new_file_path);
-
+            
             $file_data = file_get_contents($new_file_path);
             $this->generateMustacheVariables($file_data, $new_file_path);
         }

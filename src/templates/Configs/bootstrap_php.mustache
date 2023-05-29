@@ -14,7 +14,7 @@ if ( ! function_exists( '{{function_prefix}}_get_config' ) ) {
 	 */
 	function {{function_prefix}}_get_config($name = '')
 	{
-		$configs = require {{constent_prefix}}_DIR_PATH . '/Configs/config.php';
+		$configs = require {{constent_prefix}}_DIR_PATH . '/configs/config.php';
 		if ( $name ) {
 			return isset($configs[$name]) ? $configs[$name] : false;
 		}
