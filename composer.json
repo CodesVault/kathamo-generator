@@ -28,6 +28,7 @@
     "bin": [
         "bin/console"
     ],
+    "license": "MIT",
     "keywords": [
         "wordpress",
         "kathamo",
