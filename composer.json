@@ -27,7 +27,7 @@
     },
     "require-dev": {},
     "bin": [
-        "bin/console"
+        "bin/kathamo"
     ],
     "license": "MIT",
     "keywords": [
