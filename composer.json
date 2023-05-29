@@ -1,7 +1,7 @@
 {
     "name": "codesvault/kathamo-generator",
     "description": "Kathamo Generator is a command line tool to generate Kathamo framework skeleton.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
