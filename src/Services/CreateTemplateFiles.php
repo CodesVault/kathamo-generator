@@ -27,16 +27,19 @@ class CreateTemplateFiles
     {
         $finder = new Finder();
 		$finder->ignoreDotFiles(false)
-            ->in($this->kathamo_path);
+            ->in($this->kathamo_path)
+            ->exclude('vendor')
+            ->exclude('node_modules');
 
 		foreach ($finder as $file) {
-            if (
-                strpos($file->getRealPath(), 'vendor')
-                || strpos($file->getRealPath(), 'composer.lock')
-                || strpos($file->getRealPath(), 'kathamo-framework')
-            ) {
-                continue;
-            }
+            // if (
+            //     strpos($file->getRealPath(), 'vendor')
+            //     || strpos($file->getRealPath(), 'node_modules')
+            //     || strpos($file->getRealPath(), 'composer.lock')
+            //     || strpos($file->getRealPath(), 'kathamo-framework')
+            // ) {
+            //     continue;
+            // }
 			$this->createFileDir($file);
 			$this->createFile($file);
 		}
