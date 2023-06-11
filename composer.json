@@ -1,7 +1,7 @@
 {
     "name": "codesvault/kathamo-generator",
     "description": "Kathamo Generator is a command line tool to generate Kathamo framework skeleton.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "type": "library",
     "minimum-stability": "stable",
     "autoload": {
@@ -12,7 +12,8 @@
     "authors": [
         {
             "name": "CodesVault",
-            "email": "codesvault@gmail.com"
+            "email": "codesvault@gmail.com",
+            "homepage": "https://github.com/CodesVault/"
         },
         {
             "name": "Keramot UL Islam (AbmSourav)",
