@@ -2,22 +2,23 @@
 
 namespace {{namespace_prefix}}\App\Core;
 
+use Kathamo\Framework\Lib\BootManager;
+use {{namespace_prefix}}\App\Controllers\AdminMenuController;
 use {{namespace_prefix}}\App\Core\Lib\SingleTon;
+use {{namespace_prefix}}\App\Services\ActivationService;
+use {{namespace_prefix}}\App\Services\DeactivationService;
 
-final class Core
+final class Core extends BootManager
 {
 	use SingleTon;
 
-	public function __construct()
+	protected function registerList()
 	{
-		$this->load();
-	}
-
-	private function load()
-	{
-		// if (class_exists('ProBootManager')) {
-		// 	return ProBootManager::getInstance()->run();
-		// }
-		BootManager::getInstance()->run();
+		$this->registerList = [
+			ActivationService::class,
+			DeactivationService::class,
+			AssetsManager::class,
+			AdminMenuController::class,
+		];
 	}
 }
