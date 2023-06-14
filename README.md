@@ -1,5 +1,5 @@
-# Kathamo
-Personalized Framework for WordPress plugin development.
+# Kathamo Generator
+Kathamo Generator is a command line tool to generate new project with Kathamo framework.
 <br>
 All mejor components are modularized, separate composer packages.
 
