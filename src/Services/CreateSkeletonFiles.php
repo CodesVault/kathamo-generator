@@ -16,7 +16,7 @@ class CreateSkeletonFiles
 		$finder = new Finder();
 		$finder
 			->ignoreDotFiles(false)
-			->in(dirname(__DIR__) . '/templates')
+			->in(dirname(__DIR__) . '/templates/project')
 			->notName(['.DS_Store']);
 
 		foreach ($finder as $file) {
@@ -63,7 +63,7 @@ class CreateSkeletonFiles
 	private function generateFileData($file_input, $file_path = '')
 	{
 		$scaffold = new \Mustache_Engine(array(
-			'loader' => new \Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/templates'),
+			'loader' => new \Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/templates/project'),
 		));
 		$plugin_template = $scaffold->loadTemplate($file_path);
 		return $plugin_template->render($file_input);
