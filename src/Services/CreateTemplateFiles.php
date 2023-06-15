@@ -14,7 +14,7 @@ class CreateTemplateFiles
         $this->kathamo_path = $kathamo_path;
 
         if (is_dir(dirname(__DIR__) . "/templates/project")) {
-            $msg = "\n'" . dirname(__DIR__) . "/templates' directory exist, remove it to execute the command.\nExit\n";
+            $msg = "\n'" . dirname(__DIR__) . "/templates/project' directory exist, remove it to execute the command.\nExit\n";
             echo Notifier::notify($msg, 'warning');
             die();
         }
@@ -33,14 +33,6 @@ class CreateTemplateFiles
             ->exclude('node_modules');
 
 		foreach ($finder as $file) {
-            // if (
-            //     strpos($file->getRealPath(), 'vendor')
-            //     || strpos($file->getRealPath(), 'node_modules')
-            //     || strpos($file->getRealPath(), 'composer.lock')
-            //     || strpos($file->getRealPath(), 'kathamo-framework')
-            // ) {
-            //     continue;
-            // }
 			$this->createFileDir($file);
 			$this->createFile($file);
 		}
@@ -87,7 +79,7 @@ class CreateTemplateFiles
             $file_name = $file_info[0] . '_' . $file_info[1] . '.mustache';
             $new_file_path = $file_dir_path[0] . $file_name;
             $filesystem->rename($new_path, $new_file_path);
-            
+
             $file_data = file_get_contents($new_file_path);
             $this->generateMustacheVariables($file_data, $new_file_path);
         }

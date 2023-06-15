@@ -25,4 +25,5 @@ return [
     "'namaspace_root'	=> 'Kathamo',"          => "'namaspace_root'	=> '{{namespace_prefix}}',",
     "'plugin_name'		=> 'Kathamo',"          => "'plugin_name'		=> '{{plugin_name}}',",
     '"\Kathamo\Database\Migrations\\"'          => '"\{{namespace_prefix}}\Database\Migrations\\"',
+    "__( 'Kathamo', 'kathamo' )"                => "__( '{{plugin_name}}', '{{text_domain}}' )",
 ];

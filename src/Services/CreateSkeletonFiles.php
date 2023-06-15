@@ -25,6 +25,8 @@ class CreateSkeletonFiles
 			$this->createFileDir($file);
 			$this->createFile($file);
 		}
+
+		$this->installDependencies();
 	}
 
 	private function createRootDir()
@@ -80,5 +82,10 @@ class CreateSkeletonFiles
 		));
 		$plugin_template = $scaffold->loadTemplate($file_path);
 		return $plugin_template->render($file_input);
+	}
+
+	private function installDependencies()
+	{
+		system("composer install --working-dir=" . $this->root_path);
 	}
 }
