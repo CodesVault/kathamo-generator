@@ -28,9 +28,7 @@ alias kathamo=""$(composer config -g home)/vendor/codesvault/kathamo-generator/b
 
 ## Usage
 
-Create a new plugin with Kathamo framework.
-<br>
-Create a new directory and from the terminal `cd` into that directory, then run:
+Create a new plugin with Kathamo framework. From your terminal run this command
 
 ```php bash
 kathamo create:plugin
