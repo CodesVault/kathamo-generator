@@ -1,7 +1,12 @@
 # Kathamo Generator
 Kathamo Generator is a command line tool (CLI) to generate new project with Kathamo framework.
 <br>
-It also can generate Controller, Migration file, Middleware, etc components for Kathamo framework. To know about Kathamo framework, visit [kathamo.dev](https://kathamo.dev)
+It also can generate Controller, Migration file, Middleware, etc components for Kathamo framework.
+
+<br>
+
+## Documentation
+To know about Kathamo framework, visit [kathamo.dev](https://kathamo.dev)
 
 <br>
 <br>
