@@ -1,21 +1,33 @@
 <?php
-namespace Kathamo\App\CommandManager;
+namespace Kathamo\App\Commands\Creation;
 
+use Kathamo\App\Commands\CommandHelper;
 use Kathamo\App\Services\CreateSkeletonFiles;
 use Kathamo\App\Services\Notifier;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class Scaffold extends Manager
+class Scaffold extends Command
 {
-	private $input = [];
+	use CommandHelper;
 
-	public function __construct()
-	{
-		$this->getInputs();
+	protected function configure()
+    {
+        $this->setName('create create:plugin')
+            ->setDescription('Cli for Kathamo framework.');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $this->getInputs();
 
 		echo Notifier::notify(" Creating Kathamo framework scaffold...");
 		new CreateSkeletonFiles($this->input);
 
 		echo Notifier::notify("\n Done.");
+
+		return Command::SUCCESS;
 	}
 
 	private function getInputs()

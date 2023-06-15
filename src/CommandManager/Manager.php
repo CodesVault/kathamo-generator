@@ -2,7 +2,7 @@
 
 namespace Kathamo\App\CommandManager;
 
-class Manager
+class Helper
 {
     public function input($label)
     {

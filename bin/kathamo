@@ -3,9 +3,5 @@
 require_once __DIR__ . '../../vendor/autoload.php';
 
 use Kathamo\App\Commands\KathamoCLI;
-use Symfony\Component\Console\Application;
 
-$app = new Application();
-$app->add(new KathamoCLI);
-
-$app->run();
+new KathamoCLI();

@@ -8,10 +8,12 @@ use Symfony\Component\Finder\Finder;
 class CreateSkeletonFiles
 {
 	private $input_data = [];
+	private $root_path;
 
 	public function __construct($input)
 	{
 		$this->input_data = $input;
+		$this->createRootDir();
 
 		$finder = new Finder();
 		$finder
@@ -25,12 +27,23 @@ class CreateSkeletonFiles
 		}
 	}
 
+	private function createRootDir()
+	{
+		$this->root_path = getcwd() . '/' . $this->input_data['text_domain'];
+		if (is_dir($this->root_path)) {
+			throw new \Exception("`{$this->input_data['text_domain']}` Directory already exists.");
+		}
+
+		$filesystem = new Filesystem();
+		$filesystem->mkdir($this->root_path);
+	}
+
 	private function createFileDir($file)
 	{
 		if (! is_dir($file->getRealPath())) {
 			return;
 		}
-		$new_file_path = getcwd() . '/' . $file->getRelativePathname();
+		$new_file_path = $this->root_path . '/' . $file->getRelativePathname();
 		mkdir($new_file_path);
 		return;
 	}
@@ -42,7 +55,7 @@ class CreateSkeletonFiles
 		}
 
 		$filesystem = new Filesystem();
-		$new_file_path = getcwd() . '/' . $file->getRelativePathname();
+		$new_file_path = $this->root_path . '/' . $file->getRelativePathname();
 
 		copy(
 			$file->getRealPath(),

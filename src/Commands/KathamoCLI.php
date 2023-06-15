@@ -1,32 +1,26 @@
 <?php
 namespace Kathamo\App\Commands;
 
-use Kathamo\App\CommandManager\Scaffold;
-use Kathamo\App\CommandManager\Template;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Application;
+use Kathamo\App\Commands\Creation\Scaffold;
+use Kathamo\App\Commands\Creation\Template;
+use Kathamo\App\Commands\Make\MakeController;
+use Kathamo\App\Commands\Make\MakeMigration;
+use Kathamo\App\Commands\Make\MakeService;
 
-class KathamoCLI extends Command
+class KathamoCLI
 {
-    protected function configure()
+    public function __construct()
     {
-        $this->setName('create')
-            ->setDescription('Cli for Kathamo framework.')
-            ->addOption('new')
-            ->addOption('template');
-    }
+        $app = new Application();
+        $app->add(new Scaffold());
+        $app->add(new Template());
 
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        if ($input->getOption('new')) {
-            new Scaffold();
-        }
+        $app->add(new MakeMigration());
+        $app->add(new MakeController());
+        $app->add(new MakeService());
+        $app->add(new MakeMigration());
 
-        if ($input->getOption('template')) {
-            new Template();
-        }
-
-        return Command::SUCCESS;
+        $app->run();
     }
 }
