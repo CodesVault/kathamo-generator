@@ -28,5 +28,5 @@ Create a new plugin with Kathamo framework.
 Create a new directory and from the terminal `cd` into that directory, then run:
 
 ```php bash
-kathamo create --new
+kathamo create:plugin
 ```
