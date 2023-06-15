@@ -29,7 +29,8 @@ class MakeMigration extends Command
 	public function getInput()
 	{
 		$this->root_path = getcwd();
-		$this->target_path = $this->root_path . "/Database/Migrations/";
+		$this->target_path = $this->root_path . "/database/Migrations/";
 		$this->input['input_class_name'] = $this->input("Migration Name:");
+		$this->input['input_path'] = '';
 	}
 }

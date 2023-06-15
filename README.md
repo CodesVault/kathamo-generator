@@ -1,7 +1,7 @@
 # Kathamo Generator
-Kathamo Generator is a command line tool to generate new project with Kathamo framework.
+Kathamo Generator is a command line tool (CLI) to generate new project with Kathamo framework.
 <br>
-All mejor components are modularized, separate composer packages.
+It also can generate Controller, Migration file, Middleware, etc components for Kathamo framework. To know about Kathamo framework, visit [kathamo.dev](https://kathamo.dev)
 
 <br>
 <br>
@@ -29,4 +29,15 @@ Create a new directory and from the terminal `cd` into that directory, then run:
 
 ```php bash
 kathamo create:plugin
+```
+
+<br>
+
+Create Controller, Migration file, Middleware, Service.
+
+```php bash
+kathamo make:controller
+kathamo make:migration
+kathamo make:middleware
+kathamo make:service
 ```

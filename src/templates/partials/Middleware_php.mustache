@@ -2,7 +2,9 @@
 
 namespace {{namaspace_root}}\App\Controllers\Middleware{{namespace_suffix}};
 
-class {{input_class_name}}
+use Kathamo\Framework\Lib\Middleware;
+
+class {{input_class_name}} extends Middleware
 {
 	public function handle()
 	{

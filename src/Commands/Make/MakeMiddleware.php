@@ -55,7 +55,7 @@ class MakeMiddleware extends Command
 			$schema .= "'$key'	=> $i::class,\n\t\t";
 		}
 
-		$controller_template = dirname(__DIR__) . '/templates/partials/config_php.mustache';
+		$controller_template = dirname(__DIR__, 2) . '/templates/partials/config_php.mustache';
 		$mustache = new \Mustache_Engine();
 		$file_content = $mustache->render(
 			file_get_contents($controller_template),
@@ -63,6 +63,6 @@ class MakeMiddleware extends Command
 		);
 
 		$filesystem = new Filesystem;
-		$filesystem->dumpFile($this->root_path . '/Configs/config.php', $file_content);
+		$filesystem->dumpFile($this->root_path . '/configs/config.php', $file_content);
 	}
 }

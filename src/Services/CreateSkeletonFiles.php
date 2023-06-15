@@ -27,6 +27,7 @@ class CreateSkeletonFiles
 		}
 
 		$this->installDependencies();
+		echo Notifier::notify("\nPlugin created in " . $this->root_path);
 	}
 
 	private function createRootDir()
@@ -86,6 +87,10 @@ class CreateSkeletonFiles
 
 	private function installDependencies()
 	{
+		echo Notifier::notify("\nInstalling Composer dependencies...");
 		system("composer install --working-dir=" . $this->root_path);
+
+		echo Notifier::notify("\nInstalling NPM dependencies...");
+		system("npm install --prefix=" . $this->root_path);
 	}
 }

@@ -22,10 +22,10 @@ class Scaffold extends Command
     {
         $this->getInputs();
 
-		echo Notifier::notify(" Creating Kathamo framework scaffold...");
+		echo Notifier::notify("\nCreating Kathamo framework scaffold...");
 		new CreateSkeletonFiles($this->input);
 
-		echo Notifier::notify("\n Done.");
+		echo Notifier::notify("\nDone.");
 
 		return Command::SUCCESS;
 	}
