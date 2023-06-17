@@ -92,5 +92,6 @@ class CreateSkeletonFiles
 
 		echo Notifier::notify("\nInstalling NPM dependencies...");
 		system("npm install --prefix=" . $this->root_path);
+		system("npm run build --prefix=" . $this->root_path);
 	}
 }
