@@ -1,8 +1,7 @@
 #!/usr/bin/env php
 <?php
-// require_once __DIR__ . '/../../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../vendor/autoload.php';
 // require_once __DIR__ . '../../vendor/autoload.php';
-require_once $GLOBALS['_composer_autoload_path'];
 
 use Kathamo\App\Commands\KathamoCLI;
 
