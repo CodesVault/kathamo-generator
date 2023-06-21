@@ -14,8 +14,8 @@ class Scaffold extends Command
 
 	protected function configure()
     {
-        $this->setName('create create:plugin')
-            ->setDescription('Cli for Kathamo framework.');
+        $this->setName('create:plugin')
+            ->setDescription('Create new plugin using Kathamo framework');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

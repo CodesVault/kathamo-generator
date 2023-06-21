@@ -15,8 +15,8 @@ class Template extends Command
 
     protected function configure()
     {
-        $this->setName('create create:template')
-            ->setDescription('Cli for Kathamo framework.');
+        $this->setName('create:template')
+            ->setDescription('Create new template for Kathamo framework');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
