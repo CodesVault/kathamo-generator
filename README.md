@@ -18,9 +18,11 @@ Install using composer as global package.
 composer global require codesvault/kathamo-generator
 ```
 
-Then set path as alias in your `.bashrc` or `.zshrc` file like this.
+If you've already added composer's bin folder to your path, you can use the command `kathamo` right away from your cli.
+
+However, if you prefer not to modify the `PATH` variable, you can also create an alias in your `.bashrc` or `.zshrc` file like this.
 ```bash
-alias kathamo=""$(composer config -g home)/vendor/codesvault/kathamo-generator/bin/kathamo""
+alias kathamo="$(composer config -g home)/vendor/codesvault/kathamo-generator/bin/kathamo"
 ```
 
 <br>
@@ -30,7 +32,7 @@ alias kathamo=""$(composer config -g home)/vendor/codesvault/kathamo-generator/b
 
 Create a new plugin with Kathamo framework. From your terminal run this command
 
-```php bash
+```bash
 kathamo create:plugin
 ```
 
