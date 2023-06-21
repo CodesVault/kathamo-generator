@@ -23,9 +23,9 @@
     ],
     "require": {
         "mustache/mustache": "^2.14",
-        "symfony/console": "5.4.13",
-        "symfony/filesystem": "5.4.13",
-        "symfony/finder": "5.4.11"
+        "symfony/console": "^5.3|^6.0",
+        "symfony/filesystem": "^5.3|^6.0",
+        "symfony/finder": "^5.3|^6.0"
     },
     "require-dev": {},
     "bin": [
