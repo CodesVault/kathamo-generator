@@ -8,6 +8,7 @@ use Kathamo\App\Commands\Make\MakeController;
 use Kathamo\App\Commands\Make\MakeMiddleware;
 use Kathamo\App\Commands\Make\MakeMigration;
 use Kathamo\App\Commands\Make\MakeService;
+use Kathamo\App\Commands\Make\MakeModel;
 
 class KathamoCLI
 {
@@ -21,6 +22,7 @@ class KathamoCLI
         $app->add(new MakeController());
         $app->add(new MakeService());
         $app->add(new MakeMigration());
+        $app->add(new MakeModel());
 
         $app->run();
     }
