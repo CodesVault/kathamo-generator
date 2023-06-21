@@ -3,7 +3,7 @@
     "description": "Kathamo Generator is the CLI for Kathamo framework.",
     "version": "1.3.0",
     "type": "library",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Kathamo\\App\\": "src/"
