@@ -15,7 +15,7 @@ class KathamoCLI
     {
         $app = new Application();
         $app->add(new Scaffold());
-        // $app->add(new Template());
+        // $app->add(new Template());	// only for development
 
         $app->add(new MakeMiddleware());
         $app->add(new MakeController());

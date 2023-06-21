@@ -1,9 +1,9 @@
 {
     "name": "codesvault/kathamo-generator",
-    "description": "Kathamo Generator is a command line tool to generate new project with Kathamo framework.",
+    "description": "Kathamo Generator is the CLI for Kathamo framework.",
     "version": "1.3.0",
     "type": "library",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Kathamo\\App\\": "src/"
@@ -22,6 +22,7 @@
         }
     ],
     "require": {
+		"php": ">=7.2.5",
         "mustache/mustache": "^2.14",
         "symfony/console": "^5.3|^6.0",
         "symfony/filesystem": "^5.3|^6.0",

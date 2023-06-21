@@ -1,7 +1,7 @@
 # Kathamo Generator
-Kathamo Generator is a command line tool (CLI) to generate new project with Kathamo framework.
+Kathamo Generator is the CLI for Kathamo framework.
 <br>
-It also can generate Controller, Migration file, Middleware, etc components for Kathamo framework.
+It can create new plugin with Kathamo framework and also can generate Controller, Migration file, Middleware, etc components for Kathamo framework.
 
 <br>
 
@@ -18,12 +18,21 @@ Install using composer as global package.
 composer global require codesvault/kathamo-generator
 ```
 
-If you've already added composer's bin folder to your path, you can use the command `kathamo` right away from your cli.
+<br>
+Add Composer's system-wide vendor bin directory in your $PATH, so that Kathamo executable can be located by your system.
 
-However, if you prefer not to modify the `PATH` variable, you can also create an alias in your `.bashrc` or `.zshrc` file like this.
-```bash
-alias kathamo="$(composer config -g home)/vendor/codesvault/kathamo-generator/bin/kathamo"
-```
+* macOS: `$HOME/.composer/vendor/bin`
+* Windows: `%USERPROFILE%\AppData\Roaming\Composer\vendor\bin`
+* GNU / Linux Distributions: '$HOME/.config/composer/vendor/bin or $HOME/.composer/vendor/bin'
+
+<br>
+
+If you've already have added composer's bin folder to your path, you can use the command `kathamo` right away from your terminal.
+
+However, if you prefer not to modify the `PATH` variable, you can also create an alias in your `.bashrc` or `.zshrc` file like below:
+<br>
+
+`alias kathamo="$(composer config -g home)/vendor/bin/kathamo"`
 
 <br>
 <br>
