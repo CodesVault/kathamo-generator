@@ -1,8 +1,7 @@
 <?php
 
 return [
-    '"Kathamo\\\\App\\\\": "app/",'             => '"{{namespace_prefix}}\\\\App\\\\": "app/",',
-    '"Kathamo\\\\Database\\\\": "database/"'    => '"{{namespace_prefix}}\\\\Database\\\\": "database/"',
+    '"Kathamo\\\\App\\\\": "app/"'				=> '"{{namespace_prefix}}\\\\App\\\\": "app/"',
     '@package kathamo'                          => '@package {{text_domain}}',
     'Plugin Name: Kathamo'                      => 'Plugin Name: {{plugin_name}}',
     'Text Domain: kathamo'                      => 'Text Domain: {{text_domain}}',
